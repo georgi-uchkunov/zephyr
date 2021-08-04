@@ -7,17 +7,20 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
+@Table(name = "\"User\"")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 2L;
@@ -33,7 +36,9 @@ public class User implements Serializable {
 	private String lastName;
 	private String password;
 	private String phoneNumber;
+	@ElementCollection(targetClass=String.class)
 	private Set<String> addresses;
+	@ElementCollection(targetClass=GrantedAuthority.class)
 	private Set<? extends GrantedAuthority> grantedAuthorities;
 	private boolean isAccountNonExpired;
 	private boolean isAccountNonLocked;

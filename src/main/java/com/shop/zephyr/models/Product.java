@@ -2,7 +2,6 @@ package com.shop.zephyr.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,7 +31,7 @@ public class Product implements Serializable {
 	private int productStock;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private List<Order> orders;
+	private Order order;
 
 	public Product() {
 
@@ -123,11 +122,11 @@ public class Product implements Serializable {
 		this.productStock = productStock;
 	}
 
-	public List<Order> getOrders() {
-		return orders;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 }
