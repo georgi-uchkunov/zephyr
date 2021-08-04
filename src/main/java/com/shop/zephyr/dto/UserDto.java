@@ -42,6 +42,27 @@ public class UserDto {
     @NotNull
     @NotEmpty
     private List<String> addresses;
+    
+    public UserDto() {
+    	
+    }
+
+	public UserDto(@NotNull @NotEmpty String username, @NotNull @NotEmpty String firstName,
+			@NotNull @NotEmpty String lastName, @NotNull @NotEmpty String password, String matchingPassword,
+			@NotNull @NotEmpty String email, @NotNull @NotEmpty String phoneNumber,
+			@NotNull @NotEmpty List<String> addresses) {
+		super();
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.matchingPassword = matchingPassword;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.addresses = addresses;
+	}
+
+
 
 	public String getUsername() {
 		return username;
